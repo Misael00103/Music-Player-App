@@ -58,7 +58,7 @@ ul {
 }
 
 .player {
-  height: 275px;
+  height: 300px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -125,7 +125,7 @@ ul {
   row-gap: 20px;
   padding: 14px;
   background-color: var(--background-color);
-  height: 200px;
+  height: 222px;
   width: 240px;
 }
 
@@ -386,10 +386,11 @@ footer {
 /* Reducir el tamaño de la playlist */
 .playlist {
   width: 450px; /* Ajusta el ancho de la playlist según tus preferencias */
+  height: 275px;
 }
 
 #playlist-songs {
-  max-height: 200px; /* Ajusta la altura máxima de la lista de reproducción */
+  max-height: 275px; /* Ajusta la altura máxima de la lista de reproducción */
   overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
 }
 
@@ -441,4 +442,3 @@ footer {
     border-radius: 2px; /* Bordes redondeados del mango en dispositivos más pequeños */
   }
 }
-

@@ -61,7 +61,7 @@ const allSongs = [
     id: 6,
     title: "Somewhere I Belong",
     artist: "Linkin Park",
-    duration: "3:34",
+    duration: "3:45",
     src: "./Music/Somewhere I Belong (Official Music Video) [4K UPGRADE]  Linkin Park 2.mp3",
     albumCover: "somewhere_i_belog"
   },
@@ -85,7 +85,7 @@ const allSongs = [
     id: 9,
     title: "Numb",
     artist: "Linkin Park",
-    duration: "5:03",
+    duration: "3:07",
     src: "./Music/Numb (Official Music Video) [4K UPGRADE]  Linkin Park 2.mp3",
     albumCover: "numb"
   },
@@ -93,7 +93,7 @@ const allSongs = [
     id: 10,
     title: "In The End",
     artist: "Linkin Park",
-    duration: "5:03",
+    duration: "3:38",
     src: "./Music/In The End [Official HD Music Video] - Linkin Park 2.mp3",
     albumCover: "in the end"
   },
@@ -101,7 +101,7 @@ const allSongs = [
     id: 11,
     title: "Breaking the Habit",
     artist: "Linkin Park",
-    duration: "5:03",
+    duration: "3:18",
     src: "./Music/Breaking the Habit (Official Music Video) [HD UPGRADE]  Linkin Park 3.mp3",
     albumCover: "breaking the habit"
   },
@@ -109,7 +109,7 @@ const allSongs = [
     id: 12,
     title: "Papercut",
     artist: "Linkin Park",
-    duration: "5:03",
+    duration: "3:04",
     src: "./Music/01 Papercut - Linkin Park (Hybrid Theory) 2.mp3",
     albumCover: "perpecut"
   },
@@ -117,7 +117,7 @@ const allSongs = [
     id: 13,
     title: "Last to Know",
     artist: "Three Days Grace",
-    duration: "5:03",
+    duration: "3:48",
     src: "./Music/Three Days Grace - Last to Know with lyrics 2.mp3",
     albumCover: "last to know"
   },
@@ -125,7 +125,7 @@ const allSongs = [
     id: 14,
     title: "Never Too Late",
     artist: "Three Days Grace",
-    duration: "5:03",
+    duration: "3:31",
     src: "./Music/Three Days Grace - Never Too Late 2.mp3",
     albumCover: "never to late"
   },
@@ -133,7 +133,7 @@ const allSongs = [
     id: 15,
     title: "I Hate Everything About You",
     artist: "Three Days Grace",
-    duration: "5:03",
+    duration: "3:39",
     src: "./Music/Three Days Grace - I Hate Everything About You (Official Video) 2.mp3",
     albumCover: "i hate"
   },
@@ -141,7 +141,7 @@ const allSongs = [
     id: 16,
     title: "It's All Over",
     artist: "Three Days Grace",
-    duration: "5:03",
+    duration: "4:09",
     src: "./Music/It's All Over.mp3",
     albumCover: "its over"
   },
@@ -149,7 +149,7 @@ const allSongs = [
     id: 17,
     title: "I Don't Care' feat. Adam Gontier",
     artist: "Apocalyptica",
-    duration: "5:03",
+    duration: "3:39",
     src: "./Music/Apocalyptica - 'I Don't Care' feat. Adam Gontier (Official Video) 2.mp3",
     albumCover: "apocaliptica"
   },
@@ -397,6 +397,4 @@ songProgressBar.addEventListener("input", () => {
   handleProgressBarChange();
   updateTimers(); // Actualiza el tiempo al mover la barra
 });
-
-
 
