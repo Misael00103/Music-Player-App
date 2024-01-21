@@ -415,3 +415,30 @@ footer {
     width: auto; /* Establece el ancho automático en dispositivos más pequeños */
   }
 }
+
+#playlist-songs::-webkit-scrollbar {
+  width: 8px; /* Ajusta el ancho de la barra de desplazamiento */
+}
+
+/* Mango de la barra de desplazamiento */
+#playlist-songs::-webkit-scrollbar-thumb {
+  background-color: var(--highlight-color); /* Color del mango de la barra de desplazamiento */
+  border-radius: 4px; /* Bordes redondeados del mango */
+}
+
+/* Pista de la barra de desplazamiento */
+#playlist-songs::-webkit-scrollbar-track {
+  background-color: var(--foreground-color); /* Color de la pista de la barra de desplazamiento */
+}
+
+/* Estilos adicionales para la barra de desplazamiento en dispositivos más pequeños */
+@media (max-width: 700px) {
+  #playlist-songs::-webkit-scrollbar {
+    width: 5px; /* Ajusta el ancho de la barra de desplazamiento en dispositivos más pequeños */
+  }
+
+  #playlist-songs::-webkit-scrollbar-thumb {
+    border-radius: 2px; /* Bordes redondeados del mango en dispositivos más pequeños */
+  }
+}
+
