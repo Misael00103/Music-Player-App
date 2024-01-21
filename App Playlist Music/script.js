@@ -398,3 +398,5 @@ songProgressBar.addEventListener("input", () => {
   updateTimers(); // Actualiza el tiempo al mover la barra
 });
 
+
+
