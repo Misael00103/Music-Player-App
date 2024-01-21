@@ -1,3 +1,4 @@
+//declaracion de variables
 const playlistSongs = document.getElementById("playlist-songs");
 const playButton = document.getElementById("play");
 const pauseButton = document.getElementById("pause");
@@ -5,90 +6,97 @@ const nextButton = document.getElementById("next");
 const previousButton = document.getElementById("previous");
 const shuffleButton = document.getElementById("shuffle");
 
+//data para la musica
 const allSongs = [
   {
     id: 0,
-    title: "Scratching The Surface",
-    artist: "Quincy Larson",
-    duration: "4:25",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/scratching-the-surface.mp3",
+    title: "Like You Do",
+    artist: "Joji",
+    duration: "3:36",
+    src: "./Music/Joji - Like You Do.mp3",
+    albumCover: "like_u_do"
   },
   {
     id: 1,
-    title: "Can't Stay Down",
-    artist: "Quincy Larson",
-    duration: "4:15",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stay-down.mp3",
+    title: "Slow Dancing In The Dark",
+    artist: "Joji",
+    duration: "3:37",
+    src: "./Music/Joji - SLOW DANCING IN THE DARK .mp3",
+    albumCover: "slow_dancing_in_the_dark"
   },
   {
     id: 2,
-    title: "Still Learning",
-    artist: "Quincy Larson",
-    duration: "3:51",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/still-learning.mp3",
+    title: "Glimpse of Us",
+    artist: "Joji",
+    duration: "3:53",
+    src: "./Music/Joji -  Glimpse of Us .mp3",
+    albumCover: "glimpse_of_us"
   },
   {
     id: 3,
-    title: "Cruising for a Musing",
-    artist: "Quincy Larson",
-    duration: "3:34",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cruising-for-a-musing.mp3",
+    title: "Yeah Right",
+    artist: "Joji",
+    duration: "2:54",
+    src: "./Music/Joji - YEAH RIGHT.mp3",
+    albumCover: "yeah_right"
   },
   {
     id: 4,
-    title: "Never Not Favored",
-    artist: "Quincy Larson",
-    duration: "3:35",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/never-not-favored.mp3",
+    title: "Es Épico",
+    artist: "Canserbero",
+    duration: "6:20",
+    src: "./Music/Canserbero - Es Épico.mp3",
+    albumCover: "es_epico"
   },
   {
     id: 5,
-    title: "From the Ground Up",
-    artist: "Quincy Larson",
-    duration: "3:12",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/from-the-ground-up.mp3",
+    title: "As The World Caves In",
+    artist: "Sarah Cothran",
+    duration: "2:40",
+    src: "./Music/As The World Caves In - Matt Maltese (Cover by Sarah Cothran).mp3",
+    albumCover: "sarah_corthran"
   },
   {
     id: 6,
-    title: "Walking on Air",
-    artist: "Quincy Larson",
-    duration: "3:25",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/walking-on-air.mp3",
+    title: "Somewhere I Belong",
+    artist: "Linkin Park",
+    duration: "3:34",
+    src: "./Music/Linkin Park - Somewhere I Belong.mp3",
+    albumCover: "somewhere_i_belog"
   },
   {
     id: 7,
-    title: "Can't Stop Me. Can't Even Slow Me Down.",
-    artist: "Quincy Larson",
-    duration: "3:52",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stop-me-cant-even-slow-me-down.mp3",
+    title: "One Step Closer",
+    artist: "Linkin Park",
+    duration: "2:56",
+    src: "./Music/One Step Closer - Linkin Park.mp3",
+    albumCover: "one_step_closer"
   },
   {
     id: 8,
-    title: "The Surest Way Out is Through",
-    artist: "Quincy Larson",
-    duration: "3:10",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/the-surest-way-out-is-through.mp3",
-  },
-  {
-    id: 9,
-    title: "Chasing That Feeling",
-    artist: "Quincy Larson",
-    duration: "2:43",
-    src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/chasing-that-feeling.mp3",
+    title: "Psychosocial",
+    artist: "Slipknot",
+    duration: "5:03",
+    src: "./Music/Slipknot - Psychosocial .mp3",
+    albumCover: "sklinot"
   },
 ];
-
+//conexion con la data y reproductor
 const audio = new Audio();
 let userData = {
   songs: [...allSongs],
   currentSong: null,
   songCurrentTime: 0,
 };
-
+//boton de player 
 const playSong = (id) => {
   const song = userData?.songs.find((song) => song.id === id);
   audio.src = song.src;
   audio.title = song.title;
+
+  // Actualiza la imagen de la carátula del álbum
+  const albumArt = document.getElementById("player-album-art");
+  albumArt.querySelector("img").src = `imagenes/${song.albumCover}.png`;
 
   if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
     audio.currentTime = 0;
@@ -103,14 +111,14 @@ const playSong = (id) => {
   setPlayButtonAccessibleText();
   audio.play();
 };
-
+//boton de pausa
 const pauseSong = () => {
   userData.songCurrentTime = audio.currentTime;
-  
+
   playButton.classList.remove("playing");
   audio.pause();
 };
-
+//boton de cambiar canciones
 const playNextSong = () => {
   if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
@@ -121,17 +129,17 @@ const playNextSong = () => {
     playSong(nextSong.id);
   }
 };
-
-const playPreviousSong = () =>{
-   if (userData?.currentSong === null) return;
-   else {
+//boton de cambiar a la musica anterior
+const playPreviousSong = () => {
+  if (userData?.currentSong === null) return;
+  else {
     const currentSongIndex = getCurrentSongIndex();
     const previousSong = userData?.songs[currentSongIndex - 1];
 
     playSong(previousSong.id);
-   }
+  }
 };
-
+//boton aleatorio
 const shuffle = () => {
   userData?.songs.sort(() => Math.random() - 0.5);
   userData.currentSong = null;
@@ -142,7 +150,7 @@ const shuffle = () => {
   setPlayerDisplay();
   setPlayButtonAccessibleText();
 };
-
+//boton para eliminar cancion
 const deleteSong = (id) => {
   if (userData?.currentSong?.id === id) {
     userData.currentSong = null;
@@ -153,9 +161,9 @@ const deleteSong = (id) => {
   }
 
   userData.songs = userData?.songs.filter((song) => song.id !== id);
-  renderSongs(userData?.songs); 
-  highlightCurrentSong(); 
-  setPlayButtonAccessibleText(); 
+  renderSongs(userData?.songs);
+  highlightCurrentSong();
+  setPlayButtonAccessibleText();
 
   if (userData.songs.length === 0) {
     const resetButton = document.createElement("button");
@@ -169,7 +177,7 @@ const deleteSong = (id) => {
     resetButton.addEventListener("click", () => {
       userData.songs = [...allSongs];
 
-      renderSongs(userData?.songs); 
+      renderSongs(userData?.songs);
       setPlayButtonAccessibleText();
       resetButton.remove();
     });
@@ -177,7 +185,7 @@ const deleteSong = (id) => {
   }
 
 };
-
+//funcion para retornar la cancion luego de ser eliminada
 const setPlayerDisplay = () => {
   const playingSong = document.getElementById("player-song-title");
   const songArtist = document.getElementById("player-song-artist");
@@ -203,7 +211,7 @@ const highlightCurrentSong = () => {
 
 const renderSongs = (array) => {
   const songsHTML = array
-    .map((song)=> {
+    .map((song) => {
       return `
       <li id="song-${song.id}" class="playlist-song">
       <button class="playlist-song-info" onclick="playSong(${song.id})">
@@ -235,14 +243,14 @@ const setPlayButtonAccessibleText = () => {
 const getCurrentSongIndex = () => userData?.songs.indexOf(userData.currentSong);
 
 playButton.addEventListener("click", () => {
-    if (userData?.currentSong === null) {
+  if (userData?.currentSong === null) {
     playSong(userData?.songs[0].id);
   } else {
     playSong(userData?.currentSong.id);
   }
 });
 
-pauseButton.addEventListener("click",  pauseSong);
+pauseButton.addEventListener("click", pauseSong);
 
 nextButton.addEventListener("click", playNextSong);
 
@@ -254,17 +262,56 @@ audio.addEventListener("ended", () => {
   const currentSongIndex = getCurrentSongIndex();
   const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
 
-    if (nextSongExists) {
-      playNextSong();
-    } else {
-      userData.currentSong = null;
-      userData.songCurrentTime = 0;  
-pauseSong()
-setPlayerDisplay()
-highlightCurrentSong()
-setPlayButtonAccessibleText()
-    }
+  if (nextSongExists) {
+    playNextSong();
+  } else {
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    pauseSong()
+    setPlayerDisplay()
+    highlightCurrentSong()
+    setPlayButtonAccessibleText()
+  }
 });
 
 renderSongs(userData?.songs);
 setPlayButtonAccessibleText();
+
+const songProgressBar = document.getElementById("song-progress");
+
+const updateProgressBar = () => {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  songProgressBar.value = progress;
+};
+
+const handleProgressBarChange = () => {
+  const progress = songProgressBar.value / 100;
+  audio.currentTime = audio.duration * progress;
+};
+
+audio.addEventListener("timeupdate", updateProgressBar);
+songProgressBar.addEventListener("input", handleProgressBarChange);
+
+const currentTimeDisplay = document.getElementById("current-time");
+const totalTimeDisplay = document.getElementById("total-time");
+
+const formatTime = (timeInSeconds) => {
+  const minutes = Math.floor(timeInSeconds / 60);
+  const seconds = Math.floor(timeInSeconds % 60);
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+};
+
+const updateTimers = () => {
+  currentTimeDisplay.textContent = formatTime(audio.currentTime);
+  totalTimeDisplay.textContent = formatTime(audio.duration);
+};
+
+audio.addEventListener("timeupdate", () => {
+  updateProgressBar();
+  updateTimers();
+});
+
+songProgressBar.addEventListener("input", () => {
+  handleProgressBarChange();
+  updateTimers(); // Actualiza el tiempo al mover la barra
+});
