@@ -30,10 +30,11 @@
                 </div>
             </div>
             <div class="player-content">
+               
                 <div id="player-album-art">
                     <img id="imagenes" src="imagenes/caratula.png" alt="song cover art" />
                 </div>
-
+                
                 <div class="player-display">
                     <div class="player-display-song-artist">
                         <p id="player-song-title"></p>
@@ -78,10 +79,13 @@
                     <div class="player-timer">
                         <span id="current-time">0:00</span> / <span id="total-time">0:00</span>
                     </div>
+                    <div class="time-volume-controls">
                     <div class="time-bar">
                         <input type="range" id="song-progress" value="0" min="0" max="100" step="1" />
                     </div>
-
+                    <label for="volume-control">📢</label>
+        <input type="range" id="volume-control" value="100" min="0" max="100" step="1" />
+                </div>
                 </div>
             </div>
         </div>
@@ -102,7 +106,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 <a href="https://portafolio-misael.netlify.app/">Misael Beriguete</a>. Todos los derechos reservados.</p>
+        <p>&copy; 2024 <a href="https://portafolio-misael.netlify.app/" target="_blank">Misael Beriguete</a>. Todos los derechos reservados.</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

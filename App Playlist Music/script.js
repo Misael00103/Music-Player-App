@@ -5,6 +5,7 @@ const pauseButton = document.getElementById("pause");
 const nextButton = document.getElementById("next");
 const previousButton = document.getElementById("previous");
 const shuffleButton = document.getElementById("shuffle");
+const volumeControl = document.getElementById("volume-control"); // Nuevo: Agregado control de volumen
 
 //data para la musica
 const allSongs = [
@@ -61,7 +62,7 @@ const allSongs = [
     title: "Somewhere I Belong",
     artist: "Linkin Park",
     duration: "3:34",
-    src: "./Music/Linkin Park - Somewhere I Belong.mp3",
+    src: "./Music/Somewhere I Belong (Official Music Video) [4K UPGRADE]  Linkin Park 2.mp3",
     albumCover: "somewhere_i_belog"
   },
   {
@@ -79,6 +80,78 @@ const allSongs = [
     duration: "5:03",
     src: "./Music/Slipknot - Psychosocial .mp3",
     albumCover: "sklinot"
+  },
+  {
+    id: 9,
+    title: "Numb",
+    artist: "Linkin Park",
+    duration: "5:03",
+    src: "./Music/Numb (Official Music Video) [4K UPGRADE]  Linkin Park 2.mp3",
+    albumCover: "numb"
+  },
+  {
+    id: 10,
+    title: "In The End",
+    artist: "Linkin Park",
+    duration: "5:03",
+    src: "./Music/In The End [Official HD Music Video] - Linkin Park 2.mp3",
+    albumCover: "in the end"
+  },
+  {
+    id: 11,
+    title: "Breaking the Habit",
+    artist: "Linkin Park",
+    duration: "5:03",
+    src: "./Music/Breaking the Habit (Official Music Video) [HD UPGRADE]  Linkin Park 3.mp3",
+    albumCover: "breaking the habit"
+  },
+  {
+    id: 12,
+    title: "Papercut",
+    artist: "Linkin Park",
+    duration: "5:03",
+    src: "./Music/01 Papercut - Linkin Park (Hybrid Theory) 2.mp3",
+    albumCover: "perpecut"
+  },
+  {
+    id: 13,
+    title: "Last to Know",
+    artist: "Three Days Grace",
+    duration: "5:03",
+    src: "./Music/Three Days Grace - Last to Know with lyrics 2.mp3",
+    albumCover: "last to know"
+  },
+  {
+    id: 14,
+    title: "Never Too Late",
+    artist: "Three Days Grace",
+    duration: "5:03",
+    src: "./Music/Three Days Grace - Never Too Late 2.mp3",
+    albumCover: "never to late"
+  },
+  {
+    id: 15,
+    title: "I Hate Everything About You",
+    artist: "Three Days Grace",
+    duration: "5:03",
+    src: "./Music/Three Days Grace - I Hate Everything About You (Official Video) 2.mp3",
+    albumCover: "i hate"
+  },
+  {
+    id: 16,
+    title: "It's All Over",
+    artist: "Three Days Grace",
+    duration: "5:03",
+    src: "./Music/It's All Over.mp3",
+    albumCover: "its over"
+  },
+  {
+    id: 17,
+    title: "I Don't Care' feat. Adam Gontier",
+    artist: "Apocalyptica",
+    duration: "5:03",
+    src: "./Music/Apocalyptica - 'I Don't Care' feat. Adam Gontier (Official Video) 2.mp3",
+    albumCover: "apocaliptica"
   },
 ];
 //conexion con la data y reproductor
@@ -185,6 +258,14 @@ const deleteSong = (id) => {
   }
 
 };
+volumeControl.addEventListener('input', function () {
+  // Obtiene el valor del control de volumen y ajusta el volumen del reproductor de audio
+  var volumeValue = volumeControl.value / 100;
+  audio.volume = volumeValue;
+});
+
+audio.volume = volumeControl.value / 100;
+
 //funcion para retornar la cancion luego de ser eliminada
 const setPlayerDisplay = () => {
   const playingSong = document.getElementById("player-song-title");
@@ -194,6 +275,7 @@ const setPlayerDisplay = () => {
 
   playingSong.textContent = currentTitle ? currentTitle : "";
   songArtist.textContent = currentArtist ? currentArtist : "";
+  audio.volume = volumeControl.value / 100;
 };
 
 const highlightCurrentSong = () => {
@@ -315,3 +397,4 @@ songProgressBar.addEventListener("input", () => {
   handleProgressBarChange();
   updateTimers(); // Actualiza el tiempo al mover la barra
 });
+
