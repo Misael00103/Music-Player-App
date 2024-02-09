@@ -360,19 +360,37 @@ renderSongs(userData?.songs);
 setPlayButtonAccessibleText();
 
 const songProgressBar = document.getElementById("song-progress");
+const timeBar = document.querySelector(".time-bar");
 
 const updateProgressBar = () => {
   const progress = (audio.currentTime / audio.duration) * 100;
   songProgressBar.value = progress;
+
+  const percentage = (progress / 100) * 100;
+  timeBar.style.background = `linear-gradient(to right, #3498db ${percentage}%, #ecf0f1 ${percentage}%)`;
 };
 
 const handleProgressBarChange = () => {
   const progress = songProgressBar.value / 100;
   audio.currentTime = audio.duration * progress;
+
+  const percentage = (songProgressBar.value / 100) * 100;
+  timeBar.style.background = `linear-gradient(to right, #3498db ${percentage}%, #ecf0f1 ${percentage}%)`;
+  timeBar.style.borderRadius = `20px`;
+};
+
+const handleVolumeControlChange = () => {
+  const volumeValue = volumeControl.value / 100;
+  audio.volume = volumeValue;
+  const volumePercentage = (volumeControl.value / 100) * 100;
+  volumeControl.style.background = `linear-gradient(to right, #3498db ${volumePercentage}%, #ecf0f1 ${volumePercentage}%)`;
+  volumeControl.style.borderRadius = `20px`;
 };
 
 audio.addEventListener("timeupdate", updateProgressBar);
 songProgressBar.addEventListener("input", handleProgressBarChange);
+
+volumeControl.addEventListener("input", handleVolumeControlChange);
 
 const currentTimeDisplay = document.getElementById("current-time");
 const totalTimeDisplay = document.getElementById("total-time");
@@ -397,4 +415,3 @@ songProgressBar.addEventListener("input", () => {
   handleProgressBarChange();
   updateTimers(); // Actualiza el tiempo al mover la barra
 });
-
