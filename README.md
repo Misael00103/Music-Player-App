@@ -11,3 +11,12 @@ Demo: https://misael-playermusic.netlify.app/
 ![image](https://github.com/Misael00103/Music-Player-App/assets/68718644/ad78284a-5e72-430a-b346-607de8c60d57)
 
 ![image](https://github.com/Misael00103/Music-Player-App/assets/68718644/093f0000-3f5e-49ec-b961-9fe91bdda857)
+
+<h1>Actualizacion 2</h1>
+
+![image](https://github.com/Misael00103/Music-Player-App/assets/68718644/e7917d23-d81f-463b-83ff-b3b783ea37a1)
+
+![image](https://github.com/Misael00103/Music-Player-App/assets/68718644/a564c245-815f-4bb3-9477-0410685182f6)
+
+![image](https://github.com/Misael00103/Music-Player-App/assets/68718644/e4c917b6-922a-421d-9294-52746e010eba)
+
