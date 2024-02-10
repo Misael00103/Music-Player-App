@@ -316,20 +316,7 @@ const renderSongs = (array) => {
 
 // ...
 
-document.getElementById('search-btn').addEventListener('click', function() {
-  const searchInput = document.getElementById('search-input').value.toLowerCase();
-  const playlist = document.getElementById('playlist-songs');
-  const songs = playlist.getElementsByTagName('li');
 
-  for (const song of songs) {
-      const title = song.textContent.toLowerCase();
-      if (title.includes(searchInput)) {
-          song.style.display = 'block';
-      } else {
-          song.style.display = 'none';
-      }
-  }
-});
 
 
 const setPlayButtonAccessibleText = () => {
@@ -436,3 +423,17 @@ songProgressBar.addEventListener("input", () => {
   updateTimers(); // Actualiza el tiempo al mover la barra
 });
 
+document.getElementById('search-btn').addEventListener('click', function() {
+  const searchInput = document.getElementById('search-input').value.toLowerCase();
+  const playlist = document.getElementById('playlist-songs');
+  const songs = playlist.getElementsByTagName('li');
+
+  for (const song of songs) {
+      const title = song.textContent.toLowerCase();
+      if (title.includes(searchInput)) {
+          song.style.display = 'block';
+      } else {
+          song.style.display = 'none';
+      }
+  }
+});
