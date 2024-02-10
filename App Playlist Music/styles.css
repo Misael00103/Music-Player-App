@@ -525,3 +525,35 @@ label {
   font-size: 24px; /* Ajusta el tamaño de la etiqueta según tu preferencia */
   margin-right: 10px;
 }
+
+#search-input {
+  width: 190px; /* Ajusta este valor según tus necesidades */
+  background-color: transparent;
+  border: 1px solid cornflowerblue;
+  color: white;
+  margin: auto;
+  border-radius: 20px;
+  height: 30px;
+  margin-right: 160px;
+}
+
+button#search-btn{
+  margin-left: -150px
+}
+
+.delete-button-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.song-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.playlist-song-delete {
+  margin-left: 10px; /* Ajusta según sea necesario */
+}
